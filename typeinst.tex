@@ -76,21 +76,46 @@ Tiergartenstr. 17, 69121 Heidelberg, Germany\\
 \tocauthor{Authors' Instructions}
 \maketitle
 
+Starting from a topic and seed papers the following
+questions must be answered:
+Motivation:
+n Which problem is addressed?
+n Which scientific question (hypothesis) is answered?
+n Why is the problem relevant?
+n Which advantages has a (general) solution of this problem?
+n Which methods have been applied to solve the problem?
+n How is the solution validated?
+
+
+State of the art:
+n Which methods, concepts, theories, algorithms are proposed to solve the
+problem? Preconditions, advantages and disadvantages of these
+methods, concepts, etc.?
+n What can be mastered actually?
+n Which challenges still must be solved?
+n Which are the perspectives of the discipline?
+New relevant methods, concepts, theories, algorithms, insights …
+(No limits to your creativity!)
 
 \begin{abstract}
+  % TODO
 The abstract should summarize the contents of the paper and should
 contain at least 70 and at most 150 words. It should be written using the
 \emph{abstract} environment.
-\keywords{We would like to encourage you to list your keywords within
-the abstract section}
+
+\keywords{recommender systems, music recommendation, artificial intelligenece}
 \end{abstract}
 
-\section{Papers References}
-\cite{wang2020came}
-\cite{la2022music}
-
+\section{Papers TODO}
+% TODO
+\cite{priyanka2023novel}
+\cite{singh2022novel}
+\cite{moscato2020emotional}
 
 \section{Introduction}
+
+
+- work aims to summarize recent development and good approaches in music recommendation (state of art)
 
 \section{State-of-the-art}
 In 2020 Melchiorre, Zangerle \textit{et al.} proposed their work were they analyzed the personality bias of common algorithms in the area of music recommendation.
@@ -103,6 +128,14 @@ The authors compared \textit{Recall@K} and \textit{NDCG@K} (normalized discounte
 They were able to prove that low scores on personality traits such as \textit{openness}, \textit{extraversion} and \textit{conscientiousness} lead to higher performance
 while low scores for \textit{neuroticism} and \textit{agreeableness} lead to low performance according to the chosen metrics. 
 Finally they stated some limitations of their work as well as planned extensions. \cite{melchiorre2020personality}\\
+\\
+% TODO 
+\textit{CAME}, content and context-aware music embedding for recommendation, is a novel approach proposed by Wang, Zhang \textit{et al.}.
+They stated that traditional methods often have limitations due to missing additional information aspects. 
+Therefore they aim to comnbine content and contextual information for better music recommendations. 
+This is achieved by using a heterogeneous information network in combination with deep learning.
+\cite{wang2020came}
+\\
 \\
 In their work Niyazov, Mikhailova \textit{et al.} proposed a novel approach for content-based music recommendation. 
 They want to recommend suitable music to users based on the acoustic similarity of songs.
@@ -121,11 +154,22 @@ Comparing the quantitative measurements the authors were able to conclude that b
 whit the second approach using Neural Networks achieving the best results. \\
 Addtionally the authors invesitaged genre-specific clustering via visualizing vector spaces on a plane. 
 Due to genre-specific clustering being closely related to the acoustic sound of songs this again highlighted their findings that approaches 
-using ANN achieve better results. 
+using ANN achieve better results. \cite{niyazov2021content}
 
-\cite{niyazov2021content}
+
+La Gatta, Moscato \textit{et al.} proposed a novel approach for music recommendation using hypergraph embedding.
+They split their work into three main parts.
+First they invesitaged how to model and store the relevant data in a hypergraph-based structure.
+Afterwards they focussed on generating hypergraph embeddings from their dataset.
+The third part of their work was the actual recommendation task where they used graph-based machine learning to 
+generate the top-k track recommendations for each user. \\
+One core challenge of their work was the modelling of scenarios such as a song being part of an album, users listening to songs, et cetera.
+This was done using a hypergraph-based structure which has vertices and edges but also metadata information.\\
+For evaluation La Gatta, Moscato \textit{et al.} compared their novel approach with other state-of-the-art music recommenders such as \textit{CAME} \cite{wang2020came}.
+They were able to surpass them at some quality metrics. \cite{la2022music}
 
 \section{Critical discussion and evaluation}
+% TODO
 
 - personality trait -> nur twitter data considered -> gilt wsl net fia ganze population
 - incomplete data (net zu allem access)
@@ -136,9 +180,15 @@ using ANN achieve better results.
 - nehmen nur bruchtteil vom dataset und assumen dass genug is = net getestet und geproved 
 
 
-
+- zusammenfassedn hat jeder approach irgendwo seine limitation 
+- sei es auf zu kleienn daten mengen getestet oder andererseits wieder nicht schnell / zuverlkässig genug 
+- große dienste wie spotify  = highly compoetitive 
 
 \section{Conclusions}
+% TODO
+
+
+
 
 %\subsection{Figures}
 
@@ -312,6 +362,18 @@ pp. 274--279 (2021)
 \bibitem{melchiorre2020personality} Melchiorre, Alessandro B and Zangerle, Eva and Schedl, Markus:
 Personality bias of music recommendation algorithms. In: Proceedings of the 14th ACM Conference on Recommender Systems, 
 pp. 533--538 (2020)
+
+\bibitem{priyanka2023novel} Priyanka, V Tejaswini and Reddy, Y Reshma and Vajja, Dharani and Ramesh, G and Gomathy, S:
+A Novel Emotion based Music Recommendation System using CNN. In: 2023 7th International Conference on Intelligent Computing and Control Systems (ICICCS),
+pp. 592--596 (2023)
+
+\bibitem{singh2022novel} Singh, Jagendra and Sajid, Mohammad and Yadav, Chandra Shekhar and Singh, Shashank Sheshar and Saini, Manthan:
+A novel deep neural-based music recommendation method considering user and song data. In: 2022 6th International Conference on Trends in Electronics and Informatics (ICOEI),
+pp. 1--7 (2022)
+
+\bibitem{moscato2020emotional} Moscato, Vincenzo and Picariello, Antonio and Sperli, Giancarlo:
+An emotional recommender system for music. In: IEEE Intelligent Systems, vol. 36, pp. 57--68 (2020)
+
 
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
