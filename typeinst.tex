@@ -132,17 +132,17 @@ Music recommendation is a highly competitve field in the corporate world.
 Due 
 to limited access to company internal algorithms the focus of this work is to examine publications in the research domain. \\
 \\ 
-The main hypothesis of this work is:
+The main hypothesis of this seminar paper is:
 \begin{center}
   \textbf{State-of-the-art music recommendation: Are we there yet?}
 \end{center}
 This question indicates that there is a lot of new development in the field of music recommendation but we don't have an answer to the really important question of whether we already achieve 
 sufficient results in real-world usage scenarios such as when streaming music on a telephone.\\
 \\
-To answer this question this work aims to analyze various recent research approaches for the task of music recommendation.\\
+To answer this question this seminar paper aims to analyze various recent research approaches for the task of music recommendation.\\
 Nowadays various disciplines work on this topic such as \textit{Computer Science}, \textit{Human Computer Interaction} (HCI), 
 \textit{Psychology}, \textit{Sociology}, \textit{Information Processing} and more. 
-Therefore we can say that the core topic of recommendation systems is broadly spread among various fields and therefore 
+Using this knowledge we can say that the core topic of recommendation systems is broadly spread among various fields and therefore 
 a lot of different aspects need to be taken into account to get high qualitative recommendations. \\
 \\
 An additional difficulty of this domain is the human factor. It can be really hard to generalize because of 
@@ -150,25 +150,25 @@ different users and their personality, mood and other factors. Recent work did a
 To summarize the following chapters aim to provide an overview of recent developments for the task of music recommendation 
 followed by a critical discussion and evaluation as well as conclusion. 
 \section{State-of-the-art}
-This section provides an overview of current developments in research for the core task of music recommendation. 
+This section provides an overview of recent publications in research for the core task of music recommendation. 
 \subsection{Datasets}
-One core aspect for achieving good predictions is a suitable dataset. Many of the methods mentioned in this seminar paper to some extent rely on publicly available datasets.
+One core aspect for achieving good predictions in general is a suitable dataset. Many of the methods mentioned in this seminar paper to some extent rely on publicly available datasets.
 This subsection aims to provide an overview on the latest released datasets for music recommendation. \\
 \\
 In the year 2022 Moscati \textit{et al.} proposed a multi-modal large scale dataset suitable for the task of music recommendation. 
 The dataset contains 109 269 songs with each having 26 features. It is called \textit{Music4All-Onion} because the structure of the dataset is based on an onion with various different layers.
 Inner layers tend to be less semantic meaningful while outer layers have a strong semantic meaning. \\
 The inner most layer contains acoustic features and is called \textit{Audio-layer}.
-This layer is followed by the \textit{EMD-layer} which contains processed features evolving around the lyrics.
-\textit{EGC-layer} is the name of the middle layer which provides information on the genres.
-The next layer is called \textit{UGC-layer} and contains data concerning the tags of the songs. 
-\textit{DC-layer} is the outermost layer which contains video features.\\
-The authors did some benchmarking experiments and achieved promising results.\cite{moscati2022music4all}\\
+This layer is followed by the \textit{EMD-layer} which contains processed features evolving around the lyrics of a song.
+\textit{EGC-layer} is the name of the middle layer which provides information on the corresponding genres.
+The next layer is called \textit{UGC-layer} and contains data concerning the tags of the tracks. 
+\textit{DC-layer} is the outermost layer which consists of various video features.\\
+The authors did some benchmarking experiments and stated that they achieved promising results.\cite{moscati2022music4all}\\
 \\
-Grigorev \textit{et al.} stated that only little available datasets include aspects proven to be of importance such as situational or emotional data.
+Grigorev \textit{et al.} stated that only little available datasets include aspects recently proven to be of importance such as situational or emotional data.
 For collecting the dataset they used a method split up into three main parts.
-The first part was a study where they tried to collect user's preferences using the \textit{Million Song Dataset} (MSD).
-As the second part of the study the authors tried to collect situational and feedback.
+The first part was a lab study where they tried to collect user's preferences using the \textit{Million Song Dataset} (MSD).
+As the second part of the study the authors tried to collect situational data and feedback.
 The feedback was received via smart wristbands and an app which provides emotional feedback and music recommendations.
 The final step included the usage of a situational recommender built with the data gained from the previous study's part. \\
 \\
@@ -184,19 +184,19 @@ This broad usage variety is one of the main advantages of this new dataset.\\
 Additionally \textit{LFM-2b} is not only a large-scale dataset but also consists of a wide timeframe with entries ranging from the year 2005 to the year 2020. 
 The authors stated that they also plan further extensions to make the dataset even more universally usable.\cite{schedl2022lfm}
 \subsection{Music Recommendation Methods} 
-This subsection aims to provide an overview on methods recently developed for music recommendation.\\
+This subsection aims to provide an overview on methods recently developed or published for improving the field of music recommendation.\\
 \\
 \textit{CAME}, content and context-aware music embedding for recommendation, is a novel approach proposed by Wang \textit{et al.}.
 They stated that traditional methods often have limitations due to missing additional information aspects. 
-Therefore they aim to comnbine content and contextual information for a personaliezes music recommendation system. 
+Therefore they aim to combine content and contextual information for a personalizes music recommendation system. 
 Content information is for example metadata, tags or lyrics of songs. 
-Contextual information consists of the user's behaviour such as session when the user listens to tracks or sequences of music played. 
+Contextual information consists of the user's behaviour such as the session sequence when the user listens to tracks or sequences of music played. 
 The combination of those two information types is done via a heterogeneous informatin network (HIN).
 Their approach \textit{CAME} then uses deep learning techniques such as CNN and attention mechanisms.
 Evaluation was done qualitativly and quantitativly on a real-world dataset crawled from Xiami music\footnote{\url{https://www.mi.com/global/}}. 
 The authors concluded that their approach outperforms the baseline approaches.
-\textit{CAME} differs from other state-of-the-art recommendation systems because they 
-also incorporate dynamic music features, heterogeneous information and various characteristics of music.
+\textit{CAME} differs from other state-of-the-art recommendation systems because it 
+also incorporates dynamic music features, heterogeneous information and various characteristics of music.
 \cite{wang2020came}\\
 \\
 Moscato \textit{et al.} proposed a novel approach where they included user's moods, emotions and personality traits for the 
@@ -224,9 +224,9 @@ to get the 10 best recommendations per song. \\
 The second experiment is using artificial neural networks. 
 The networks are trained using spectogram representations of the acoustic signals.
 Using the model a vector representation for each song is predicted. 
-Similar to the first approach using 10-NN the best 10 recommendations per song are gathered. \\
-Both approaches got compared with random recommendations using precision, recall, F1-score and a version of the F1-score with a threshold of 0.4.
-This means that all recommendations below this value are considered as irrelevant. The value was introduced by the authors based on their evaluation.\\
+Similar to the first approach using 10-Nearest Neighbors the best 10 recommendations per song are gathered. \\
+Both approaches got compared with random recommendations, with and without a genre limitation, using precision, recall, F1-score and a version of the F1-score with a threshold of 0.4.
+This means that all recommendations below this value are considered as irrelevant. The value was introduced by the authors based on their subjective evaluation during the process of development.\\
 Comparing the quantitative measurements the authors were able to conclude that both approaches outperformed the random recommendation
 whit the second approach using Neural Networks achieving the best results. \\
 Addtionally the authors invesitaged genre-specific clustering via visualizing vector spaces on a plane. 
@@ -244,7 +244,7 @@ This was done using a hypergraph-based structure which has vertices and edges bu
 For evaluation La Gatta \textit{et al.} compared their novel approach with other state-of-the-art music recommenders such as \textit{CAME} \cite{wang2020came}.
 They were able to surpass them at some quality metrics. \cite{la2022music}
 \\
-The authors of 
+In the year 2022 the authors of 
 \cite{singh2022novel} proposed a novel approach called \textit{DNBMR} (Deep neural based music recommendation) 
 to prevent the cold start problem many other systems face when they rely mostly on historical song data of users. 
 They incorporated music attributes as well as music temporally liked by user's.
@@ -252,14 +252,26 @@ With a combination of \textit{LSTM} (long short term memory) and neural networks
 Evaluation was done using a dataset from a large Asian streaming platform provided on the platform \textit{Kaggle} in form of a competition and the metrics \textit{Accuracy}, \textit{Recall}, \textit{F-score},
 \textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}. This approach benefits from the fact that as soon as a user listens to a song their taste is grasped.\\
 \\
+In their work Bontempelli \textit{et al.} tried to improve the Flow algorithm of the music provider Deezer.
+This algorithm is basically a playlist recommender system as it provides its user's with new songs in a personalized playlist on Deezer. 
+A major disadvantage of this recommender tool was that it didn't include user's emotions and therefore users did not like their recommended songs.
+Therefore main goal of this work was to include an emotional aspect into the recommendations.
+This was done via the introduction of six mood categories namely \textit{Chill}, \textit{Focus}, \textit{Melancholy}, \textit{Motivation}, \textit{Party} and \textit{You and Me}.
+Songs were manually annotated with moods by experts to provide a foundation of labeled data. The general approach is a collaborative filtering method. Additionally they included findings from an audio content analysis.
+The authors successfully released the improved version namend \textit{Flow Moods} in 2021 as a mobile version and in 2022 it was also included in the desktop Deezer application.
+Results were very promising and could be used to analyze the categorized listening behaviour of Dezzer users. 
+\cite{bontempelli2022flow}\\
+\\
 In 2023 a novel approach for music recommendation based on user's emotion was published. 
 This work incorporated the field of human computer interaction as the user 
 was sitting in front of a computer and the detection of the emotions was done live. \\
 The authors tried to predict the user's emotion based on the facial expression defined by various facial characteristics using a neural network algorithm.\\
 Depending on the emotion a suitable \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} playlist was displayed.
-To prevent users from being unsatisfied with their playlist the surface of the application still provided the option for an alternative selection.
+To prevent users from being unsatisfied with the song they now are listening to, the surface of the application still provided the option for an alternative playlist and therefore implicit also mood selection.
 For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.
-In comparison to other approaches the focus here was more on the emotion recognition rather than the actual playlist recommendation.\cite{priyanka2023novel}\\
+In comparison to other approaches the focus here was more on the emotion recognition rather than the actual playlist recommendation.\cite{priyanka2023novel}
+\subsection{User Experience}
+This subsection summarizes a publication evaluating the experience of users when being confronted with corporate recommendation systems as for example the in-house tools from various popular music providers.\\
 \\
 In their work \cite{de2022evaluating} the authors aim to gain knowledge about user's experiences on two popular streaming platforms namely 
 \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} and Deezer\footnote{\url{https://www.deezer.com/de/offers}}. \\
@@ -278,9 +290,9 @@ The provider Deezer surpassed Spotify in terms of evaluated data. \\
 \\
 In addition this work aims to explain the need for adapting recommendation systems for other goals than just achieving a high accuracy score.
 They were able to show that the inclusion of various other views increases user's joy when using a platform for playing music.
-
 \subsection{Evaluation of Metods for Music Recommendation} 
-This subsection includes recent work evaluating state-of-the-art music recommendation methods.\\
+This subsection includes recent work evaluating state-of-the-art music recommendation methods
+in terms of their quality and aiming to find out whether any unfairness is present in the predicted suggestions.\\
 \\
 In 2020 Melchiorre \textit{et al.} proposed their work were they analyzed the personality bias of common algorithms in the area of music recommendation.
 They stated that other work already proved that there is for example a bias on item or user level in multimedia recommendations. 
@@ -298,7 +310,7 @@ their research were interviews with musicians where the musicians wanted female 
 To analyze whether there is actually a gender bias, the authors incorporated gender information into a dataset and
 performed recommendations using a collaborative-filtering method named \textit{ALS}.
 They were able to find that the ranking of results includes a bias where the tendency first shows music from male artists. 
-To improve the situation they suggested a re-ranking method. In the future they want to test their re-ranking method, which is basically a feedback loop, on datasets more similar to real-world usage. \cite{ferraro2021break}\\
+To improve the situation they suggested a re-ranking method. In the future they want to test their re-ranking method, which is basically a feedback loop, on datasets more similar to real-world usage. \cite{ferraro2021break}
 \section{Critical discussion and evaluation}
 This section aims to provide a critical view and evaluation of current methods in the field of music recommendation. \\
 \\
@@ -329,7 +341,62 @@ Outside of the research environment recommender systems are a very competitive f
 Large companies such as the music provider service \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}}
 have a desperate need of good music recommendation to satisfy their user's needs and to stand out from their competitors. 
 A large share of their employees probably does similar work but 
-is following a confidentiality agreement due to their contract.\\
+is following a confidentiality agreement due to their contract.
+\subsection{Ethical Evaluation of Music Recommendation}
+This subsection highlights the view on responsibility and ethics as well as effects on the society when performing music recommendation and recommendations in general. \\
+\\
+In 2016 Paraschakis published a publication where one part is about several ethical challenges 
+which increase the difficulty of developing recommendation systems. The paper doesn't focus on music recommendation but more on recommender systems in general and their usage in e-commerce.\\
+The author stated that the ethical part is often neglected but has various important dimensions to consider.
+\subsubsection{Collecting data}
+Users are not always aware of the fact that part of their actions are tracked and later used for example for the generation of a dataset.
+\subsubsection{User profiling} 
+Some algorithms strongly rely on user profiles which could publish private information of users or be used for attacks such as a profile injection.
+\subsubsection{Public datasets}
+As a developer of a new recommendation system large publicly available datasets help a lot.
+They consist of personas personal information and behaviour which makes them on the other hand morally questionable.
+Recent incidents show that gaining personal information on the people behind such a datasets content is possible. If something like that happens it could lead to severe consequences.
+\subsubsection{Filering of suggestions}
+Many recommendation systems don't filter their recommendations.
+This means that they don't consider the fact that some recommendations could be triggering or inappropriate for certain user groups.
+Additionally often there is no balance between benefit for the user and benefit for the company. According to the author incidents such as recommendations with a tendency of higher priced suggestions happened and are morally questionable.
+\subsubsection{Algorithmic opacity}
+Usually a user only sees the recommendation but no additional information. This could lead to frustration or other feelings of the user.
+\subsubsection{Bias and behaviour manipulation}  
+Other work already highlighted the presence of biasas and unfairness where recommender systems provided different results to users depending on various personality traits et cetera. 
+How do developers ensure that such unfairness does not happen? An example of e-commerce recommendations where one user group gets suggestions of higher priced items than the other again hightlights the problems arising with such biases. 
+\subsubsection{A/B Testing}
+A/B Testing is often used by companies to test their latest changes or developments without completely changing the whole system.
+For this kind of test half of the users experience the new version and the rest the old version of the recommendation system.
+This helps companies to on the one hand gain information on user's interaction with and recation concerning the latest changes but also performance information.
+Users don't know that they are currently part of an experiment and obviously did not aggree on any kind of participation. 
+Some users therefore use the real system while others serve as a kind of test objects which is again morally questionable if it for example effects decisions including money et cetera.\cite{paraschakis2016recommender}\\
+\\
+2021 Levina wanted to gain insights into possible societal and ethical problems arising when developing and using a recommender system based on machine learning.
+For this the author designed a fictional recommender system in the form of a food delivery service which aims to recommend 
+food choices based on user information. 
+This fictional recommender system was then used to identify societal and ethical concerns using analysis techniques such as a data process-oriented approach.
+All concerns were summarized in a list with the following points standing out:
+\subsubsection{Data access}
+There is a possible situation where various stakeholders could gain access to user's data without the consent of the people. This should be prevented at all cost with for example an explicit permission systems accepted or declined by the user.
+\subsubsection{Data state and life cycle}
+The user is not aware of the current state of his data or the life cycle, in other words the period of time the data will be available and used. 
+For this the author suggests developers to include a section for frequently asked questions (FAQ) somewhere on their site or in their app.
+Additionally there should be an automated deletion operation for data when it's at the end of the life cycle. 
+\subsubsection{Data storage}
+In addition to the previous keypoint users also are not aware of where and how their data is stored and whether it is also used for any additonal purpose. 
+According to the author sesponsible developers and stakeholders should internally establish guidelines and a concept which is transparently told to users. 
+This ensures trust and calmness. 
+\subsubsection{Societal concerns}
+Various societal concerns were mentioned. 
+The effect of the app or program on society in general needs to be taken into consideration. 
+It is recommended to skip public test phases and instead perform test phases in a supervised setting, for example in a lab study.
+Another recommendation by the author is to not perform A/B Testing as the user is not aware of being part of the test. 
+Instead it is suggested to first to a supervised lab testing phase or provide a beta version with information about the changes and usage.
+Changes should be rolled out to all users at once. 
+The final important aspect this work highlights is the limited traceability of the effects of the app and the recommendation system on the society.
+For this surveys, traffis analysis and restaurant contact is recommended.  \cite{levina2021towards} 
+
 \section{Conclusions}
 Recommender systems in general is a very large and broadly spread research topic with a huge amount of publications.\\
 With recent development in the field of artificial intelligence, especially neural networks, a lot of new approaches and ideas were published.\\
@@ -351,6 +418,7 @@ for example the soziological or psychological effects to improve state-of-the-ar
 \\
 To answer the hypothesis: 
 Unfortunately, \textbf{we are not there yet.} \\
+The field of music recommendation is very broad and a lot of different aspects highlighted in this seminar paper need to be taken into account when aiming for a decent music recommender system.
 But overall most of the recent publications point into the right direction.  
 \newpage
 \begin{thebibliography}{4}
@@ -418,6 +486,27 @@ pp. 417--421 (2024)
 \bibitem{schedl2022lfm} Schedl, Markus and Brandl, Stefan and Lesota, Oleg and Parada-Cabaleiro, Emilia and Penz, Davd and Rekabsaz, Navid:
 LFM-2b: A dataset of enriched music listening events for recommender systems research and fairness analysis. In:
 Proceedings of the 2022 Conference on Human Information Interaction and Retrieval, pp. 337--341 (2022)
+
+%\bibitem{murindanyi2023responsible} Murindanyi, Sudi and Nakate, Audrey and Kyebambe, Moses Ntanda and Nakibuule, Rose and Marvin, Ggaliwango:
+%Responsible Artificial Intelligence for Music Recommendation. In:
+%International Conference on Data Science and Applications, pp. 291--306, Springer (2023)
+
+\bibitem{paraschakis2016recommender} Paraschakis, Dimitris:
+Recommender systems from an industrial and ethical perspective. In:
+Proceedings of the 10th ACM conference on recommender systems, pp.
+463--466 (2016)
+
+\bibitem{levina2021towards}Levina, Olga:
+Towards Implementation of Ethical Issues into the Recommender Systems Design. In:
+ICCGI 2021, The Sixteenth International Multi-Conference on Computing in the Global Information Technology, 
+pp. 6--11 (2021)
+
+\bibitem{bontempelli2022flow} Bontempelli, Th{\'e}o and Chapus, Benjamin and Rigaud, Fran{\c{c}}ois and Morlon, Mathieu and Lorant, Marin and Salha-Galvan, Guillaume:
+Flow moods: Recommending music by moods on deezer. In: 
+Proceedings of the 16th ACM Conference on Recommender Systems, pp. 
+452--455(2022)
+
+
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
 
