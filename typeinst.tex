@@ -70,69 +70,57 @@
 \tocauthor{Authors' Instructions}
 \maketitle
 
-Starting from a topic and seed papers the following
-questions must be answered:
-Motivation:
-n Which problem is addressed?
-n Which scientific question (hypothesis) is answered?
-n Why is the problem relevant?
-n Which advantages has a (general) solution of this problem?
-n Which methods have been applied to solve the problem?
-n How is the solution validated?
-
-
-State of the art:
-n Which methods, concepts, theories, algorithms are proposed to solve the
-problem? Preconditions, advantages and disadvantages of these
-methods, concepts, etc.?
-n What can be mastered actually?
-n Which challenges still must be solved?
-n Which are the perspectives of the discipline?
-New relevant methods, concepts, theories, algorithms, insights …
-(No limits to your creativity!)
-
 \begin{abstract}
-  % TODO
-The abstract should summarize the contents of the paper and should
-contain at least 70 and at most 150 words. It should be written using the
-\emph{abstract} environment.
+  Nowadays tons of music is available to almost everyone almost all the time. 
+  This highlights the need of a good song recommendation technique to prevent user’s from information overload. 
+  There exists a variety of methods for this task, some only from a computer scientists’ view but also a lot of interdisciplinary work, especially when it comes to include sociological or psychological factors. 
+  This work aims to present some of the most recent methods for music recommendation using either traditional or more specific approaches. 
+  Another core aspect of this seminar paper is the critical discussion and evaluation with the goal to answer the main hypothesis on whether we already achieve sufficient results using state-of-the-art methods. 
+  
 
-With the development of a huge amount of music being available to almost everyone almost everytime the need for good
-music recommendation systems increased. 
-There exits a variety of different approaches for this task. 
-This work aims to present some of the most recent and best performing methods using 
-either traditional or more specific approaches.
-Another core aspect is the critical discussion and evaluation with the goal 
-to state whether we already achieve sufficient results using those methods. 
-
-\keywords{recommender systems, music recommendation, artificial intelligenece}
+\keywords{recommender systems, music recommendation, artificial intelligenece, deep learning, lstm, content-based, collaborative, knowledge-based, hybrid}
 \end{abstract}
 
 \section{Introduction}
-
-According to Jannach, Zanker \textit{et al.} the overall goal of recommender systems is to build systems that help users in making decisions.
-Recommendations should be applicable to the broad mass of users but also on such a personal level that it outperfoms field experts. \cite{jannach2010recommender}
+According to Jannach, Zanker \textit{et al.}\cite{jannach2010recommender}
+ the overall goal of recommender systems is to build systems that help users in making decisions.\\
+Recommendations should be applicable to the broad mass of users but also suggest on such a personal level that it outperfoms field experts. 
 \\
 Recommendation systems aim to relieve users from the information overload they need to handle when 
-making a decision.\\ 
+making a decision without the actual need to consult an expert or even pay for the service.\\ 
 \\
-Im general we differ between the following core categories of recommendation systems: 
+Im general we differ between the following main categories of recommendation systems: 
 \begin{itemize}
-  \item Collaborative Recommendation
-  \item Content-based Recommendation
+  \item Collaborative Filtering
+  \item Content-based Filtering
   \item Kowledge-based Recommendation
-  \item Hybrid-based Approaches
+  \item Hybrid Recommendation
 \end{itemize}
-\subsubsection{Collaborative Recommendation}
-\subsubsection{Content-based Recommendation}
+\subsubsection{Collaborative Filtering}
+Collaborative Filtering (CF) is based on other user's opinions and ratings. \\
+This recommendation method is similar to people's behaviour in real world. If we like the camera we bought, 
+the friends we tell about might also consider to buy it. If we don't like it, they probably also won't buy it.
+Collaborative filtering is mainly used to recommend an item, 
+predict the rating for an item or provide contrained suggestions. \cite{schafer2007collaborative}
+\subsubsection{Content-based Filtering}
+In comparison to collaborative filtering this approach doesn't rely on user's ratings but 
+on items with similar ratings. \\A user profile containing the user's interest is used. \cite{burke2002hybrid}
 \subsubsection{Kowledge-based Recommendation}
-\subsubsection{Hybrid-based Approaches}
-\cite{jannach2010recommender}
-
-
-
-The main hypothesis of this work is:\\
-\textbf{Automatic expert music recommendation: Are we there yet?}\\
+Recommendations are made based on available recommendations and user's demands. \cite{burke2002hybrid}
+\subsubsection{Hybrid Recommendation}
+Each of the methods mentioned above comes with a variety of advantages and disadvantages. \\
+Hybrid recommendation systems are combinations of other recommendation approaches to eliminate certain 
+limitations and improve the overall performance. 
+There is a variety of possibilities to combine methods.
+Switching between recommendations, combining the scores to an overall score, having various recommendations as output
+ and more. \cite{burke2002hybrid}\\
+\\
+The main hypothesis of this work is:
+\begin{center}
+  \textbf{State-of-the-art music recommendation: Are we there yet?}
+\end{center}
+This question indicates that there is a lot of new development in the field of music recommendation but we don't have an answer to the really important question of whether we already achieve 
+sufficient results in real-world usage scenarios such as when streaming music on a telephone.\\
 \\
 To answer this question this work aims to analyze various recent research approaches for the task of music recommendation.\\
 Nowadays various disciplines work on this topic such as \textit{Computer Science}, \textit{Human Computer Interaction} (HCI), 
@@ -156,7 +144,13 @@ They were able to prove that low scores on personality traits such as \textit{op
 while low scores for \textit{neuroticism} and \textit{agreeableness} lead to low performance according to the chosen metrics. 
 Finally they stated some limitations of their work as well as planned extensions. \cite{melchiorre2020personality}\\
 \\
-% TODO 
+Ferraro, Serra \textit{et al.} published a work where they analyzed the gender imbalance in song recommendation systems. A core driver of 
+their research were interviews with musicians where the musicians wanted female artists to be recommended more frequently than it currently happens.
+To analyze whether there is actually a gender bias, the authors incorporated gender information into a dataset and
+performed recommendations using a collaborative-filtering method named \textit{ALS}.
+They were able to find that the ranking of results includes a bias where the tendency first shows music from male artists. 
+To improve the situation they suggested a re-ranking method. In the future they want to test their re-ranking method, which is basically a feedback loop, on datasets more similar to real-world usage. \cite{ferraro2021break}\\
+\\
 \textit{CAME}, content and context-aware music embedding for recommendation, is a novel approach proposed by Wang, Zhang \textit{et al.}.
 They stated that traditional methods often have limitations due to missing additional information aspects. 
 Therefore they aim to comnbine content and contextual information for a personaliezes music recommendation system. 
@@ -168,7 +162,7 @@ Evaluation was done qualitativly and quantitativly on a real-world dataset crawl
 The authors concluded that their approach outperforms the baseline approaches.
 \textit{CAME} differs from other state-of-the-art recommendation systems because they 
 also incorporate dynamic music features, heterogeneous information and various characteristics of music.
-\cite{wang2020came}
+\cite{wang2020came}\\
 \\
 Moscato, Picariello \textit{et al.} proposed a novel approach where they included user's moods, emotions and personality traits for the 
 task of music recommendation. According to the authors recent publications revealed evidence for the importance of such aspects in terms of 
@@ -176,14 +170,14 @@ a good recommendation.
 Their approach extends a conent-based recommendation method with features of user's mood and personality.\\
 The authors used a dataset from Dezzer\footnote{\url{https://www.deezer.com/de/offers}} as well as two sources for 
 user's personality informations. 
-They were able to show that the newly introduced factors are of great importance for good music recommendations. \cite{moscato2020emotional}
+They were able to show that the newly introduced factors are of great importance for good music recommendations. \cite{moscato2020emotional}\\
 \\
 In 2020 Hansen, Hansen \textit{et al.} tried to tackle challenges such as dealing with short songs or user's listening to the same songs multiple times.
 For this they used a dataset from Spotify\footnote{\url{https://open.spotify.com/intl-de}} and a neural network architecture. \\
 Their main hypothesis was that contextual information such as the device or a timestamp as well as sequential user behaviour are 
  important dimensions for music recommendation systems.
 They were able to conclude that both contextual and sequential data are of high value for the core task of music recommendation. 
-\cite{hansen2020contextual}
+\cite{hansen2020contextual}\\
 \\
 In their work Niyazov, Mikhailova \textit{et al.} proposed a novel approach for content-based music recommendation. 
 They want to recommend suitable music to users based on the acoustic similarity of songs.
@@ -202,9 +196,8 @@ Comparing the quantitative measurements the authors were able to conclude that b
 whit the second approach using Neural Networks achieving the best results. \\
 Addtionally the authors invesitaged genre-specific clustering via visualizing vector spaces on a plane. 
 Due to genre-specific clustering being closely related to the acoustic sound of songs this again highlighted their findings that approaches 
-using ANN achieve better results. \cite{niyazov2021content}
-
-
+using ANN achieve better results. \cite{niyazov2021content}\\
+\\
 La Gatta, Moscato \textit{et al.} proposed a novel approach for music recommendation using hypergraph embedding.
 They split their work into three main parts.
 First they invesitaged how to model and store the relevant data in a hypergraph-based structure.
@@ -222,22 +215,23 @@ to prevent the cold start problem many other systems suffer from.
 They incorporated music attributes as well as music temporally liked by user's.
 With a combination of \textit{LSTM} (long short term memory) and neural networks their approach beat two other baseline recommendation systems.
 Evaluation was done using a dataset from a large Asian streaming platform and the metrics \textit{Accuracy}, \textit{Recall}, \textit{F-score},
-\textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}.
-
+\textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}.\\
+\\
 In 2023 a novel approach for music recommendation based on user's emotion was published. 
 The authors tried to predict the user's emotion based on the facial expression via a neural network and a webcam livestream.
 Depending on the emotion a suitable \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} playlist was displayed.
-For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.
-\cite{priyanka2023novel}
+For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.\cite{priyanka2023novel}
 
 \section{Critical discussion and evaluation}
-% TODO
-
-- personality trait -> nur twitter data considered -> gilt wsl net fia ganze population
-- incomplete data (net zu allem access)
-- eher wie user sein wollen (was sie posten) als was sie wirklöich anhean -> kann also von user verfälscht sein 
-
-
+This section aims to provide a critical view onto current methods in the field of music recommendation. \\
+\\
+One core aspect is the usage of incomplete data. Not every novel approach uses a suitable and current dataset.
+Some even pick a small percentage of the data which doesn't model real-world scenarios where we have tons of data and users.
+Another aspect is the access to data. \\
+For example in one work  \cite{melchiorre2020personality}  the authors crawled Twitter data
+ to gain insights on the personality and the music usage of users. 
+One of their limitations is that users only post what they want others to know. There probably is a huge bias in that data. \\
+\\
 A large percentage of work in the field of recommender systems doesn't perform proper evaluation methods. 
 %the form of combining quantitative and qualitative methods. 
 Approaches such as \cite{niyazov2021content} are considered decent just through analyzing various performance metrics on a test dataset but not 
@@ -247,50 +241,32 @@ In their work Cremonesi and Jannach evaluated recent work in the field of recomm
 evaluation methodologies, baselines and research questions to answer the questions whether they actually improve the state-of-the-art.
 If they found evidence that there is no real progress, they tried to find reasons for that and provided recommendations for researchers 
 but also reviewers and chairs. 
-They suggested to move from a strong reliance on accuracy and well-explored problems to more practice related work. \cite{cremonesi2021progress} 
-
-
-- only public dataset not perfect passend 
-- nehmen nur bruchtteil vom dataset und assumen dass genug is = net getestet und geproved 
-
+They suggested to move from a strong reliance on accuracy and well-explored problems to more practice related work. \cite{cremonesi2021progress} \\
+\\
 Summarizing we can say that every approach has it's own limitations. However this should not prevent researchers from using proper and reproducable techniques. 
 Many approaches rely on old or not perfectly suitable datasets because 
 it results in huge effort to improve or create new datasets. \\
-\\
-Addtionally except for one approach % TODO large scale zitieren) 
-none of the works focussed on large scale applicability which especially nowadays is a huge challenge. \\
 \\
 One has to note that this seminar paper only contains publicly available music recommendation systems.
 Outside of the research environment recommender systems are a very competitive field. 
 Large companies such as the music provider service \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}}
 have a desperate need of good music recommendation to satisfy their user's needs and to stand out from their competitors. 
 A large share of their employees probably does similar work but 
-is following a confidentiality agreement due to their contract.   
-
-
-- %TODO tendency to use emotions and DL and combine disciplines
-
+is following a confidentiality agreement due to their contract.\\
 \section{Conclusions}
-% TODO
-
-Recommeder systems is a very large and broadly spread research topic.
+Recommender systems is a very large and broadly spread research topic.
 With recent development in the field of artificial intelligence a lot of new approaches and ideas were published.\\
 In this work we tried to summarize current developments as well as concerns evolving around methods and evaluation, especially 
 for usage in a real-world environment.\\
 \\
-
-
-- viele neue themen 
-- interessante techniken um relevante info dimensionen miteinzuschliessn 
-- leider oft nur limited evaluated und nicht immer real world applicable
-- viele felder vereint 
-
-spotify usw keine insights, idk if we are there YET
--> nga company secrets usw 
-
-but according to other research i found no evidence that we're there yet. 
-
-
+There is a lot of work aiming to include new topics and relevant information into the task of recommendation. 
+Often unfortunately a lot of limitations occur and methods are not really applicable for real-world usage. \\
+\\
+To conclude we can say that there is a tendency to use novel methods such as deep learning to improve traditional approaches.
+Additionally there is a lot of research evolving around the incorporation of information from other disciplines such as 
+for example the soziological or psychological effects. \\
+We are probably not there yet but overall most of the recent publication aim to go step into the right direction. 
+\newpage
 \begin{thebibliography}{4}
 
 \bibitem{wang2020came} Wang, Dongjing and Zhang, Xin and Yu, Dongjin and Xu, Guandong and Deng, Shuiguang: 
@@ -328,6 +304,18 @@ AI Magazine, vol. 42, number 3, pp. 43--54 (2021)
 
 \bibitem{jannach2010recommender} Jannach, Dietmar and Zanker, Markus and Felfernig, Alexander and Friedrich, Gerhard: 
 Recommender systems: an introduction. In: Cambridge University Press (2010)
+
+\bibitem{schafer2007collaborative} Schafer, J Ben and Frankowski, Dan and Herlocker, Jon and Sen, Shilad:
+Collaborative filtering recommender systems. In: The adaptive web: methods and strategies of web personalization,
+pp. 291--324 (2007)
+
+\bibitem{burke2002hybrid} Burke, Robin: Hybrid recommender systems: Survey and experiments. In:
+User modeling and user-adapted interaction, vol. 12, pp. 331--370. Springer (2002)
+
+\bibitem{ferraro2021break} Ferraro, Andres and Serra, Xavier and Bauer, Christine:
+Break the loop: Gender imbalance in music recommenders. In:
+Proceedings of the 2021 conference on human information interaction and retrieval,
+pp. 249--254 (2021)
 
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
