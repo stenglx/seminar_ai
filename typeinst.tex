@@ -173,7 +173,16 @@ The feedback was received via smart wristbands and an app which provides emotion
 The final step included the usage of a situational recommender built with the data gained from the previous study's part. \\
 \\
 In comparison to other available datasets \textit{SiTunes} includes traditional recommendation data, 
-psychological and physiological data as well as explicit and implicit feedback in both a lab and also a real-world usage scenario. \cite{grigorev2024situnes}
+psychological and physiological data as well as explicit and implicit feedback in both a lab and also a real-world usage scenario. \cite{grigorev2024situnes}\\
+\\
+Schedl \textit{et al.} presented a novel large-scale dataset consisting of over 2 billion listening events and 120 000 users.
+To generate the dataset they used an available API to crawl data from the platform Last.fm\footnote{\url{https://www.last.fm/de/}}.
+After some postprocessing they addtionally included Spotify URI's to make the audio easily accessible from the dataset. 
+Other core feature dimensions present are contextual and content data as well as demographic information such as age, gender or country of the users.\\
+The dataset cannot only be used for music recommendation but also for various forms of music classification and analysis to for example gain insights in various unfairness produced by different recommendation systems.
+This broad usage variety is one of the main advantages of this new dataset.\\
+Additionally \textit{LFM-2b} is not only a large-scale dataset but also consists of a wide timeframe with entries ranging from the year 2005 to the year 2020. 
+The authors stated that they also plan further extensions to make the dataset even more universally usable.\cite{schedl2022lfm}
 \subsection{Music Recommendation Methods} 
 This subsection aims to provide an overview on methods recently developed for music recommendation.\\
 \\
@@ -291,14 +300,14 @@ performed recommendations using a collaborative-filtering method named \textit{A
 They were able to find that the ranking of results includes a bias where the tendency first shows music from male artists. 
 To improve the situation they suggested a re-ranking method. In the future they want to test their re-ranking method, which is basically a feedback loop, on datasets more similar to real-world usage. \cite{ferraro2021break}\\
 \section{Critical discussion and evaluation}
-This section aims to provide a critical view onto current methods in the field of music recommendation. \\
+This section aims to provide a critical view and evaluation of current methods in the field of music recommendation. \\
 \\
-One core aspect is the usage of incomplete data. Not every novel approach uses a suitable and current dataset.
-Some even pick a small percentage of the data which doesn't model real-world scenarios where we have tons of data and users.
+One critical core aspect is the usage of incomplete data. Not every novel approach uses a suitable and state-of-the-art dataset.
+Some even pick a small percentage of the data available for better computational efficiency, this doesn't model real-world scenarios where we have tons of data and users and complex relationsships inbetween. 
 Another aspect is the access to data. \\
 For example in one work  \cite{melchiorre2020personality}  the authors crawled Twitter data
- to gain insights on the personality and the music usage of users. 
-One of their limitations is that users only post what they want others to know. There probably is a huge bias in that data. \\
+ to gain insights on the personality traits and the music usage of users. 
+One of their main limitations is that users only post what they want others to know. There probably is a huge bias in that data as the real, deep, personal information is missing. \\
 \\
 A large percentage of work in the field of recommender systems doesn't perform proper evaluation methods. 
 %the form of combining quantitative and qualitative methods. 
@@ -324,25 +333,25 @@ is following a confidentiality agreement due to their contract.\\
 \section{Conclusions}
 Recommender systems in general is a very large and broadly spread research topic with a huge amount of publications.\\
 With recent development in the field of artificial intelligence, especially neural networks, a lot of new approaches and ideas were published.\\
-As also \cite{cremonesi2021progress} stated, not every novel approach is improving state-of-the-art. This can occur to various reasons such as poor evaluation not considering the different important aspects of a recommendation.\\
+As also \cite{cremonesi2021progress} stated, not every novel approach is improving the state-of-the-art. This can occur to various reasons such as the usage of unsuitable datasets or poor evaluation not considering the different important aspects of a decent recommendation system.\\
 \\
 The core focus of this seminar paper is to summarize current developments in the research field of music recommendation. 
 Addtionally a focus is on concerns and the critical discussion of the proposed methods. The main hypothesis has a special focus on the 
 applicability in the real world to for example get song recommendation when using a music streaming provider.\\
 \\
-There is a lot of work aiming to include new topics, aspects and relevant information into the task of music recommendation. 
-Often unfortunately a lot of limitations occur and methods are not really applicable for real-world usage. \\
+There is a lot of work aiming to include new topics, aspects and relevant information to further improve the task of music recommendation. 
+Often unfortunately a lot of limitations occur and methods are not really applicable for real-world usage or even not reproducable. \\
 \\
-There is still a lot of bias in various recommendation methods. Studies showed a variety of bias ranging from a gender bias to a bias depending on the time or the device used to listen to songs. This bias not only 
-affects the user's which consume the recommended music but also artists and their income. \\
+Unfortunately many recommendation systems suffer from producin biased suggestions. Studies showed a variety of bias ranging from a gender bias to a bias depending on the time or the device used to listen to songs. This bias not only 
+affects the user's which consume the recommended music but also artists and their income as well as the music industry in general. \\
 \\
 To conclude we can say that there is a tendency to use novel methods such as deep learning in comparison to the usage of traditional approaches.\\
 Additionally there is a lot of research evolving around the incorporation of information and benefits from other disciplines such as 
-for example the soziological or psychological effects. \\
+for example the soziological or psychological effects to improve state-of-the-art music recommendation. \\
 \\
 To answer the hypothesis: 
-\textbf{We are not there yet.} \\
-Overall most of the recent publications point into the right direction.  
+Unfortunately, \textbf{we are not there yet.} \\
+But overall most of the recent publications point into the right direction.  
 \newpage
 \begin{thebibliography}{4}
 
@@ -405,6 +414,10 @@ Proceedings of the 31st ACM International Conference on Information \& Knowledge
 \bibitem{grigorev2024situnes} Grigorev, Vadim and Li, Jiayu and Ma, Weizhi and He, Zhiyu and Zhang, Min and Liu, Yiqun and Yan, Ming and Zhang, Ji:
 SiTunes: A Situational Music Recommendation Dataset with Physiological and Psychological Signals. In: Proceedings of the 2024 Conference on Human Information Interaction and Retrieval,
 pp. 417--421 (2024)
+
+\bibitem{schedl2022lfm} Schedl, Markus and Brandl, Stefan and Lesota, Oleg and Parada-Cabaleiro, Emilia and Penz, Davd and Rekabsaz, Navid:
+LFM-2b: A dataset of enriched music listening events for recommender systems research and fairness analysis. In:
+Proceedings of the 2022 Conference on Human Information Interaction and Retrieval, pp. 337--341 (2022)
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
 
