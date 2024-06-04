@@ -23,9 +23,7 @@
 \usepackage{graphicx}
 
 \usepackage{url}
-\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas, frank.holzwarth,|
-\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
-\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|    
+\urldef{\mailsa}\path{katharina.stengg@aau.at}
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
 
@@ -45,25 +43,21 @@
 % their surnames. This ensures that the names appear correctly in
 % the running heads and the author index.
 %
-\author{Alfred Hofmann%
-\thanks{Please note that the LNCS Editorial assumes that all authors have used
-the western naming convention, with given names preceding surnames. This determines
-the structure of the names in the running heads and the author index.}%
-\and Ursula Barth\and Ingrid Haas\and Frank Holzwarth\and\\
-Anna Kramer\and Leonie Kunz\and Christine Rei\ss\and\\
-Nicole Sator\and Erika Siebert-Cole\and Peter Stra\ss er}
+\author{Katharina Stengg}%
+%\thanks{Please note that the LNCS Editorial assumes that all authors have used
+%the western naming convention, with given names preceding surnames. This determines
+%the structure of the names in the running heads and the author index.}%
+%\and Ursula Barth\and Ingrid Haas\and Frank Holzwarth\and\\
+%Anna Kramer\and Leonie Kunz\and Christine Rei\ss\and\\
+%Nicole Sator\and Erika Siebert-Cole\and Peter Stra\ss er}
 %
-\authorrunning{Lecture Notes in Computer Science: Authors' Instructions}
+\authorrunning{State-Of-The-Art Music Recommendation}
 % (feature abused for this document to repeat the title also on left hand pages)
-
 % the affiliations are given next; don't give your e-mail address
 % unless you accept that it will be published
-\institute{Springer-Verlag, Computer Science Editorial,\\
-Tiergartenstr. 17, 69121 Heidelberg, Germany\\
+\institute{University of Klagenfurt\\
 \mailsa\\
-\mailsb\\
-\mailsc\\
-\url{http://www.springer.com/lncs}}
+\url{}}
 
 %
 % NB: a more complex sample for affiliations and the mapping to the
@@ -114,23 +108,42 @@ to state whether we already achieve sufficient results using those methods.
 \keywords{recommender systems, music recommendation, artificial intelligenece}
 \end{abstract}
 
-\section{Papers TODO}
-% TODO
-\cite{priyanka2023novel}
-\cite{singh2022novel}
-\cite{moscato2020emotional}
-\cite{hansen2020contextual}
-
 \section{Introduction}
 
-ARE WE THERE YET? MAIN HYPOTHESIS
+According to Jannach, Zanker \textit{et al.} the overall goal of recommender systems is to build systems that help users in making decisions.
+Recommendations should be applicable to the broad mass of users but also on such a personal level that it outperfoms field experts. \cite{jannach2010recommender}
+\\
+Recommendation systems aim to relieve users from the information overload they need to handle when 
+making a decision.\\ 
+\\
+Im general we differ between the following core categories of recommendation systems: 
+\begin{itemize}
+  \item Collaborative Recommendation
+  \item Content-based Recommendation
+  \item Kowledge-based Recommendation
+  \item Hybrid-based Approaches
+\end{itemize}
+\subsubsection{Collaborative Recommendation}
+\subsubsection{Content-based Recommendation}
+\subsubsection{Kowledge-based Recommendation}
+\subsubsection{Hybrid-based Approaches}
+\cite{jannach2010recommender}
 
-- viele felder 
-- HCI, robotics, ai, psychology, sociology, cloud computing / information processing  => recommender is so breit gefächtert
 
 
-- work aims to summarize recent development and good approaches in music recommendation (state of art)
-
+The main hypothesis of this work is:\\
+\textbf{Automatic expert music recommendation: Are we there yet?}\\
+\\
+To answer this question this work aims to analyze various recent research approaches for the task of music recommendation.\\
+Nowadays various disciplines work on this topic such as \textit{Computer Science}, \textit{Human Computer Interaction} (HCI), 
+\textit{Psychology}, \textit{Sociology}, \textit{Information Processing} and more. 
+Therefore we can say that the core topic of recommendation systems is broadly spread among various fields and therefore 
+a lot of different aspects need to be taken into account to get high qualitative recommendations. \\
+\\
+An additional difficulty of this domain is the human factor. It can be really hard to generalize because of 
+different users and their personality, mood and other factors. Recent work did a lot of research into this direction.\\
+To summarize the following chapters aim to provide an overview of recent developments for the task of music recommendation 
+followed by a critical discussion and evaluation as well as conclusion. 
 \section{State-of-the-art}
 In 2020 Melchiorre, Zangerle \textit{et al.} proposed their work were they analyzed the personality bias of common algorithms in the area of music recommendation.
 They stated that other work already proved that there is for example a bias on item or user level in multimedia recommendations. 
@@ -146,10 +159,31 @@ Finally they stated some limitations of their work as well as planned extensions
 % TODO 
 \textit{CAME}, content and context-aware music embedding for recommendation, is a novel approach proposed by Wang, Zhang \textit{et al.}.
 They stated that traditional methods often have limitations due to missing additional information aspects. 
-Therefore they aim to comnbine content and contextual information for better music recommendations. 
-This is achieved by using a heterogeneous information network in combination with deep learning.
+Therefore they aim to comnbine content and contextual information for a personaliezes music recommendation system. 
+Content information is for example metadata, tags or lyrics of songs. 
+Contextual information consists of the user's behaviour such as session when the user listens to tracks or sequences of music played. 
+The combination of those two information types is done via a heterogeneous informatin network (HIN).
+Their approach \textit{CAME} then uses deep learning techniques such as CNN and attention mechanisms.
+Evaluation was done qualitativly and quantitativly on a real-world dataset crawled from Xiami music\footnote{\url{https://www.mi.com/global/}}. 
+The authors concluded that their approach outperforms the baseline approaches.
+\textit{CAME} differs from other state-of-the-art recommendation systems because they 
+also incorporate dynamic music features, heterogeneous information and various characteristics of music.
 \cite{wang2020came}
 \\
+Moscato, Picariello \textit{et al.} proposed a novel approach where they included user's moods, emotions and personality traits for the 
+task of music recommendation. According to the authors recent publications revealed evidence for the importance of such aspects in terms of 
+a good recommendation.
+Their approach extends a conent-based recommendation method with features of user's mood and personality.\\
+The authors used a dataset from Dezzer\footnote{\url{https://www.deezer.com/de/offers}} as well as two sources for 
+user's personality informations. 
+They were able to show that the newly introduced factors are of great importance for good music recommendations. \cite{moscato2020emotional}
+\\
+In 2020 Hansen, Hansen \textit{et al.} tried to tackle challenges such as dealing with short songs or user's listening to the same songs multiple times.
+For this they used a dataset from Spotify\footnote{\url{https://open.spotify.com/intl-de}} and a neural network architecture. \\
+Their main hypothesis was that contextual information such as the device or a timestamp as well as sequential user behaviour are 
+ important dimensions for music recommendation systems.
+They were able to conclude that both contextual and sequential data are of high value for the core task of music recommendation. 
+\cite{hansen2020contextual}
 \\
 In their work Niyazov, Mikhailova \textit{et al.} proposed a novel approach for content-based music recommendation. 
 They want to recommend suitable music to users based on the acoustic similarity of songs.
@@ -181,6 +215,20 @@ One core challenge of their work was the modelling of scenarios such as a song b
 This was done using a hypergraph-based structure which has vertices and edges but also metadata information.\\
 For evaluation La Gatta, Moscato \textit{et al.} compared their novel approach with other state-of-the-art music recommenders such as \textit{CAME} \cite{wang2020came}.
 They were able to surpass them at some quality metrics. \cite{la2022music}
+\\
+The authors of 
+\cite{singh2022novel} proposed a novel approach called \textit{DNBMR} (Deep neural based music recommendation) 
+to prevent the cold start problem many other systems suffer from. 
+They incorporated music attributes as well as music temporally liked by user's.
+With a combination of \textit{LSTM} (long short term memory) and neural networks their approach beat two other baseline recommendation systems.
+Evaluation was done using a dataset from a large Asian streaming platform and the metrics \textit{Accuracy}, \textit{Recall}, \textit{F-score},
+\textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}.
+
+In 2023 a novel approach for music recommendation based on user's emotion was published. 
+The authors tried to predict the user's emotion based on the facial expression via a neural network and a webcam livestream.
+Depending on the emotion a suitable \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} playlist was displayed.
+For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.
+\cite{priyanka2023novel}
 
 \section{Critical discussion and evaluation}
 % TODO
@@ -220,9 +268,15 @@ A large share of their employees probably does similar work but
 is following a confidentiality agreement due to their contract.   
 
 
+- %TODO tendency to use emotions and DL and combine disciplines
 
 \section{Conclusions}
 % TODO
+
+- viele neue themen 
+- interessante techniken um relevante info dimensionen miteinzuschliessn 
+- leider oft nur limited evaluated und nicht immer real world applicable
+- viele felder vereint 
 
 spotify usw keine insights, idk if we are there YET
 -> nga company secrets usw 
@@ -419,6 +473,9 @@ Proceedings of the 14th ACM Conference on Recommender Systems, pp. 53--62 (2020)
 
 \bibitem{cremonesi2021progress} Cremonesi, Paolo and Jannach, Dietmar: Progress in recommender systems research: Crisis? What crisis?. In:
 AI Magazine, vol. 42, number 3, pp. 43--54 (2021)
+
+\bibitem{jannach2010recommender} Jannach, Dietmar and Zanker, Markus and Felfernig, Alexander and Friedrich, Gerhard: 
+Recommender systems: an introduction. In: Cambridge University Press (2010)
 
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
