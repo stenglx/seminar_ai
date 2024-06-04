@@ -56,6 +56,7 @@
 % the affiliations are given next; don't give your e-mail address
 % unless you accept that it will be published
 \institute{University of Klagenfurt\\
+Seminar Paper: Seminar in Artifical Intelligence \\
 \mailsa\\
 \url{}}
 
@@ -69,27 +70,26 @@
 \toctitle{Lecture Notes in Computer Science}
 \tocauthor{Authors' Instructions}
 \maketitle
-
 \begin{abstract}
-  Nowadays tons of music is available to almost everyone almost all the time. 
-  This highlights the need of a good song recommendation technique to prevent user’s from information overload. 
+  Nowadays tons of music is available to almost everyone almost all the time. Additionally new songs are released and immediately available on a daily basis. 
+  This highlights the need of a good song recommendation technique to prevent users from information overload. \\
   There exists a variety of methods for this task, some only from a computer scientists’ view but also a lot of interdisciplinary work, especially when it comes to include sociological or psychological factors. 
-  This work aims to present some of the most recent methods for music recommendation using either traditional or more specific approaches. 
+  This seminar paper aims to present some of the most recent datasets and methods for music recommendation using either traditional or more specific approaches. 
   Another core aspect of this seminar paper is the critical discussion and evaluation with the goal to answer the main hypothesis on whether we already achieve sufficient results using state-of-the-art methods. 
   
 
-\keywords{recommender systems, music recommendation, artificial intelligenece, deep learning, lstm, content-based, collaborative, knowledge-based, hybrid}
+\keywords{recommender systems, music recommendation, artificial intelligenece, deep learning, lstm, content-based, collaborative, knowledge-based, hybrid, datasets, methods, evaluation}
 \end{abstract}
 
 \section{Introduction}
-According to Jannach \textit{et al.}\cite{jannach2010recommender}
+According to Jannach \textit{et al.} \cite{jannach2010recommender}
  the overall goal of recommender systems is to build systems that help users in making decisions.\\
 Recommendations should be applicable to the broad mass of users but also suggest on such a personal level that it outperfoms field experts. 
 \\
-Recommendation systems aim to relieve users from the information overload they need to handle when 
-making a decision without the actual need to consult an expert or even pay for the service.\\ 
+Such recommendation systems aim to relieve users from the information overload they need to handle when 
+making a decision, without the actual need to consult an expert or even pay for the service.\\ 
 \\
-Im general we differ between the following main categories of recommendation systems: 
+Im general we differ between the following main traditional categories of recommendation systems: 
 \begin{itemize}
   \item Collaborative Filtering
   \item Content-based Filtering
@@ -115,18 +115,22 @@ There is a variety of possibilities to combine methods.
 Switching between recommendations, combining the scores to an overall score, having various recommendations as output
  and more. \cite{burke2002hybrid}\\
 \\
-Due to the field of recommendation systems being a very broad field this work aims to 
+Due to the field of recommendation systems being a very broad field, this seminar paper aims to 
 focus on the core task of music recommendation. \\
 \\
 % TODO etwas iba music recommendation
-Since there was music, there was music recommendation. \\
+Since there has been music, there were in some way music recommendations happening. \\
 With the rise of online streaming providers the recommendation tasks switched from personal recommendations 
-of a salesman in a CD-shop to an app providing recommendations to users.\\
-Those recommendations not only need to satisfy the user's need but also affect artists in terms 
-of playbacks and income. \\
-\\
-Music recommendation is a highly competitve field in the corporate world. Due 
-to limited access to their algorithms the focus of this work is to examine publications in the research domain. \\
+of a salesman in a CD-shop to an app or website providing recommendations to users.
+Other than that the core task didn't change. A music recommendation system has to introduce the customer or user to a new, available song, artists or even playlist which 
+also matches their taste and therefore produces high user satisfaction.\\
+Those recommendations not only need to satisfy the user's need but also affect artists, trends and charts.
+The more people listen to a song, the higher it is voted in the charts and the more income the artist receives. 
+This leads to the concern of biased recommendation systems impacting not only the user but also other people and the music industry itself. \\
+Later in this work two publications dealing with gender and personality bias in recommendation systems will be discussed. \\
+Music recommendation is a highly competitve field in the corporate world. 
+Due 
+to limited access to company internal algorithms the focus of this work is to examine publications in the research domain. \\
 \\ 
 The main hypothesis of this work is:
 \begin{center}
@@ -146,25 +150,32 @@ different users and their personality, mood and other factors. Recent work did a
 To summarize the following chapters aim to provide an overview of recent developments for the task of music recommendation 
 followed by a critical discussion and evaluation as well as conclusion. 
 \section{State-of-the-art}
-This section provides an overview of current methods for music recommendation. \\
-\\ 
-In 2020 Melchiorre \textit{et al.} proposed their work were they analyzed the personality bias of common algorithms in the area of music recommendation.
-They stated that other work already proved that there is for example a bias on item or user level in multimedia recommendations. 
-Addtionally there exists work proving a correlation between music preferences and personality traits.\\
-For their experiment they created a novel dataset combining user's personality traits and music consumption.
-To gather this data they used Twitter microblog posts with certain hashtags as well as the music metadata dataset MusicBrainz. 
-Using the \textit{IBM Personality Insight API} the authors were able to integrate the user's personality traits according to the \textit{OCEAN} model of psychology.
-The authors compared \textit{Recall@K} and \textit{NDCG@K} (normalized discounted cummulative gain), with K being the length of the recommendation list, of three popular music recommenders namely \textit{SLIM}, \textit{EASE} and \textit{Mult-VAE}.
-They were able to prove that low scores on personality traits such as \textit{openness}, \textit{extraversion} and \textit{conscientiousness} lead to higher performance
-while low scores for \textit{neuroticism} and \textit{agreeableness} lead to low performance according to the chosen metrics. 
-Finally they stated some limitations of their work as well as planned extensions. \cite{melchiorre2020personality}\\
+This section provides an overview of current developments in research for the core task of music recommendation. 
+\subsection{Datasets}
+One core aspect for achieving good predictions is a suitable dataset. Many of the methods mentioned in this seminar paper to some extent rely on publicly available datasets.
+This subsection aims to provide an overview on the latest released datasets for music recommendation. \\
 \\
-Ferraro \textit{et al.} published a work where they analyzed the gender imbalance in song recommendation systems. A core driver of 
-their research were interviews with musicians where the musicians wanted female artists to be recommended more frequently than it currently happens.
-To analyze whether there is actually a gender bias, the authors incorporated gender information into a dataset and
-performed recommendations using a collaborative-filtering method named \textit{ALS}.
-They were able to find that the ranking of results includes a bias where the tendency first shows music from male artists. 
-To improve the situation they suggested a re-ranking method. In the future they want to test their re-ranking method, which is basically a feedback loop, on datasets more similar to real-world usage. \cite{ferraro2021break}\\
+In the year 2022 Moscati \textit{et al.} proposed a multi-modal large scale dataset suitable for the task of music recommendation. 
+The dataset contains 109 269 songs with each having 26 features. It is called \textit{Music4All-Onion} because the structure of the dataset is based on an onion with various different layers.
+Inner layers tend to be less semantic meaningful while outer layers have a strong semantic meaning. \\
+The inner most layer contains acoustic features and is called \textit{Audio-layer}.
+This layer is followed by the \textit{EMD-layer} which contains processed features evolving around the lyrics.
+\textit{EGC-layer} is the name of the middle layer which provides information on the genres.
+The next layer is called \textit{UGC-layer} and contains data concerning the tags of the songs. 
+\textit{DC-layer} is the outermost layer which contains video features.\\
+The authors did some benchmarking experiments and achieved promising results.\cite{moscati2022music4all}\\
+\\
+Grigorev \textit{et al.} stated that only little available datasets include aspects proven to be of importance such as situational or emotional data.
+For collecting the dataset they used a method split up into three main parts.
+The first part was a study where they tried to collect user's preferences using the \textit{Million Song Dataset} (MSD).
+As the second part of the study the authors tried to collect situational and feedback.
+The feedback was received via smart wristbands and an app which provides emotional feedback and music recommendations.
+The final step included the usage of a situational recommender built with the data gained from the previous study's part. \\
+\\
+In comparison to other available datasets \textit{SiTunes} includes traditional recommendation data, 
+psychological and physiological data as well as explicit and implicit feedback in both a lab and also a real-world usage scenario. \cite{grigorev2024situnes}
+\subsection{Music Recommendation Methods} 
+This subsection aims to provide an overview on methods recently developed for music recommendation.\\
 \\
 \textit{CAME}, content and context-aware music embedding for recommendation, is a novel approach proposed by Wang \textit{et al.}.
 They stated that traditional methods often have limitations due to missing additional information aspects. 
@@ -195,8 +206,8 @@ They were able to conclude that both contextual and sequential data are of high 
 \cite{hansen2020contextual}\\
 \\
 In their work Niyazov \textit{et al.} proposed a novel approach for content-based music recommendation. 
-They want to recommend suitable music to users based on the acoustic similarity of songs.
-This means that they use the acoustig signal of a song transformed into a suitable representation. 
+They aimed to recommend suitable music to users derived from the acoustic similarity of songs.
+This means that they use the acoustic signal of a song transformed into a suitable representation. \\
 To find the best approach they performed two seperate experiments and afterwards compared the quantitative results.\\
 The first experiment is based on acoustic feature analysis. 
 They extract acoustic features from songs, transform them into a vector representation and use 10 Nearest Neighbors with Euclidean distance 
@@ -226,16 +237,20 @@ They were able to surpass them at some quality metrics. \cite{la2022music}
 \\
 The authors of 
 \cite{singh2022novel} proposed a novel approach called \textit{DNBMR} (Deep neural based music recommendation) 
-to prevent the cold start problem many other systems suffer from. 
+to prevent the cold start problem many other systems face when they rely mostly on historical song data of users. 
 They incorporated music attributes as well as music temporally liked by user's.
 With a combination of \textit{LSTM} (long short term memory) and neural networks their approach beat two other baseline recommendation systems.
-Evaluation was done using a dataset from a large Asian streaming platform and the metrics \textit{Accuracy}, \textit{Recall}, \textit{F-score},
-\textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}.\\
+Evaluation was done using a dataset from a large Asian streaming platform provided on the platform \textit{Kaggle} in form of a competition and the metrics \textit{Accuracy}, \textit{Recall}, \textit{F-score},
+\textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}. This approach benefits from the fact that as soon as a user listens to a song their taste is grasped.\\
 \\
 In 2023 a novel approach for music recommendation based on user's emotion was published. 
-The authors tried to predict the user's emotion based on the facial expression via a neural network and a webcam livestream.
+This work incorporated the field of human computer interaction as the user 
+was sitting in front of a computer and the detection of the emotions was done live. \\
+The authors tried to predict the user's emotion based on the facial expression defined by various facial characteristics using a neural network algorithm.\\
 Depending on the emotion a suitable \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} playlist was displayed.
-For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.\cite{priyanka2023novel}\\
+To prevent users from being unsatisfied with their playlist the surface of the application still provided the option for an alternative selection.
+For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.
+In comparison to other approaches the focus here was more on the emotion recognition rather than the actual playlist recommendation.\cite{priyanka2023novel}\\
 \\
 In their work \cite{de2022evaluating} the authors aim to gain knowledge about user's experiences on two popular streaming platforms namely 
 \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} and Deezer\footnote{\url{https://www.deezer.com/de/offers}}. \\
@@ -254,6 +269,27 @@ The provider Deezer surpassed Spotify in terms of evaluated data. \\
 \\
 In addition this work aims to explain the need for adapting recommendation systems for other goals than just achieving a high accuracy score.
 They were able to show that the inclusion of various other views increases user's joy when using a platform for playing music.
+
+\subsection{Evaluation of Metods for Music Recommendation} 
+This subsection includes recent work evaluating state-of-the-art music recommendation methods.\\
+\\
+In 2020 Melchiorre \textit{et al.} proposed their work were they analyzed the personality bias of common algorithms in the area of music recommendation.
+They stated that other work already proved that there is for example a bias on item or user level in multimedia recommendations. 
+Addtionally there exists work proving a correlation between music preferences and personality traits.\\
+For their experiment they created a novel dataset combining user's personality traits and music consumption.
+To gather this data they used Twitter microblog posts with certain hashtags as well as the music metadata dataset MusicBrainz. 
+Using the \textit{IBM Personality Insight API} the authors were able to integrate the user's personality traits according to the \textit{OCEAN} model of psychology.
+The authors compared \textit{Recall@K} and \textit{NDCG@K} (normalized discounted cummulative gain), with K being the length of the recommendation list, of three popular music recommenders namely \textit{SLIM}, \textit{EASE} and \textit{Mult-VAE}.
+They were able to prove that low scores on personality traits such as \textit{openness}, \textit{extraversion} and \textit{conscientiousness} lead to higher performance
+while low scores for \textit{neuroticism} and \textit{agreeableness} lead to low performance according to the chosen metrics. 
+Finally they stated some limitations of their work as well as planned extensions. \cite{melchiorre2020personality}\\
+\\
+Ferraro \textit{et al.} published a work where they analyzed the gender imbalance in song recommendation systems. A core driver of 
+their research were interviews with musicians where the musicians wanted female artists to be recommended more frequently than it currently happens.
+To analyze whether there is actually a gender bias, the authors incorporated gender information into a dataset and
+performed recommendations using a collaborative-filtering method named \textit{ALS}.
+They were able to find that the ranking of results includes a bias where the tendency first shows music from male artists. 
+To improve the situation they suggested a re-ranking method. In the future they want to test their re-ranking method, which is basically a feedback loop, on datasets more similar to real-world usage. \cite{ferraro2021break}\\
 \section{Critical discussion and evaluation}
 This section aims to provide a critical view onto current methods in the field of music recommendation. \\
 \\
@@ -304,7 +340,8 @@ To conclude we can say that there is a tendency to use novel methods such as dee
 Additionally there is a lot of research evolving around the incorporation of information and benefits from other disciplines such as 
 for example the soziological or psychological effects. \\
 \\
-To answer the hypothesis: We are not there yet. \\
+To answer the hypothesis: 
+\textbf{We are not there yet.} \\
 Overall most of the recent publications point into the right direction.  
 \newpage
 \begin{thebibliography}{4}
@@ -361,6 +398,13 @@ pp. 249--254 (2021)
 Evaluating user experience in music discovery on deezer and spotify. In:
 Proceedings of the 21st Brazilian Symposium on Human Factors in Computing Systems, pp. 1--1 (2022)
 
+\bibitem{moscati2022music4all} Moscati, Marta and Parada-Cabaleiro, Emilia and Deldjoo, Yashar and Zangerle, Eva and Schedl, Markus:
+Music4All-Onion--A Large-Scale Multi-faceted Content-Centric Music Recommendation Dataset. In:
+Proceedings of the 31st ACM International Conference on Information \& Knowledge Management, pp. 4339--4343 (2022)
+
+\bibitem{grigorev2024situnes} Grigorev, Vadim and Li, Jiayu and Ma, Weizhi and He, Zhiyu and Zhang, Min and Liu, Yiqun and Yan, Ming and Zhang, Ji:
+SiTunes: A Situational Music Recommendation Dataset with Physiological and Psychological Signals. In: Proceedings of the 2024 Conference on Human Information Interaction and Retrieval,
+pp. 417--421 (2024)
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
 
