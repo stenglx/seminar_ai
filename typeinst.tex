@@ -89,7 +89,7 @@ Recommendations should be applicable to the broad mass of users but also suggest
 Such recommendation systems aim to relieve users from the information overload they need to handle when 
 making a decision, without the actual need to consult an expert or even pay for the service.\\ 
 \\
-Im general we differ between the following main traditional categories of recommendation systems: 
+Im general literature differs between the following four main traditional categories of recommendation systems: 
 \begin{itemize}
   \item Collaborative Filtering
   \item Content-based Filtering
@@ -106,9 +106,9 @@ predict the rating for an item or provide contrained suggestions. \cite{schafer2
 In comparison to collaborative filtering this approach doesn't rely on user's ratings but 
 on items with similar ratings. \\A user profile containing the user's interest is used. \cite{burke2002hybrid}
 \subsubsection{Kowledge-based Recommendation}
-Recommendations are made based on available recommendations and user's demands. \cite{burke2002hybrid}
+Recommendations are made based on available recommendations and user's demands. This technique does not suffer from the socalled cold-start problem.\cite{burke2002hybrid}
 \subsubsection{Hybrid Recommendation}
-Each of the methods mentioned above comes with a variety of advantages and disadvantages. \\
+Each of the categories mentioned above comes with a variety of advantages and disadvantages. \\
 Hybrid recommendation systems are combinations of other recommendation approaches to eliminate certain 
 limitations and improve the overall performance. 
 There is a variety of possibilities to combine methods.
@@ -139,19 +139,19 @@ The main hypothesis of this seminar paper is:
 This question indicates that there is a lot of new development in the field of music recommendation but we don't have an answer to the really important question of whether we already achieve 
 sufficient results in real-world usage scenarios such as when streaming music on a telephone.\\
 \\
-To answer this question this seminar paper aims to analyze various recent research approaches for the task of music recommendation.\\
+To answer this question this seminar paper aims to analyze various recent research approaches for the task of music recommendation. Additionally recent publications evolving around varios problems and concerns of music recommendation are considered.\\
 Nowadays various disciplines work on this topic such as \textit{Computer Science}, \textit{Human Computer Interaction} (HCI), 
-\textit{Psychology}, \textit{Sociology}, \textit{Information Processing} and more. 
+\textit{Psychology}, \textit{Sociology}, \textit{Information Processing}, \textit{Cloud Computing} and more. 
 Using this knowledge we can say that the core topic of recommendation systems is broadly spread among various fields and therefore 
 a lot of different aspects need to be taken into account to get high qualitative recommendations. \\
 \\
-An additional difficulty of this domain is the human factor. It can be really hard to generalize because of 
-different users and their personality, mood and other factors. Recent work did a lot of research into this direction.\\
+An additional difficulty of this domain is the human and personal factor. It can be really hard to generalize because of 
+different users and their personality, mood, intention and other factors. Recent work did a lot of research into this direction.\\
 To summarize the following chapters aim to provide an overview of recent developments for the task of music recommendation 
 followed by a critical discussion and evaluation as well as conclusion. 
 \section{State-of-the-art}
 This section provides an overview of recent publications in research for the core task of music recommendation. 
-\subsection{Datasets}
+\subsection{Datasets for Music Recommendation}
 One core aspect for achieving good predictions in general is a suitable dataset. Many of the methods mentioned in this seminar paper to some extent rely on publicly available datasets.
 This subsection aims to provide an overview on the latest released datasets for music recommendation. \\
 \\
@@ -253,7 +253,7 @@ Evaluation was done using a dataset from a large Asian streaming platform provid
 \textit{AUC} (area under curve), \textit{MAP} (mean average precision) and \textit{user coverage}. This approach benefits from the fact that as soon as a user listens to a song their taste is grasped.\\
 \\
 In their work Bontempelli \textit{et al.} tried to improve the Flow algorithm of the music provider Deezer.
-This algorithm is basically a playlist recommender system as it provides its user's with new songs in a personalized playlist on Deezer. 
+This algorithm is basically a playlist recommender system as it provides its user's with new songs in the form of a  personalized playlist on Deezer. 
 A major disadvantage of this recommender tool was that it didn't include user's emotions and therefore users did not like their recommended songs.
 Therefore main goal of this work was to include an emotional aspect into the recommendations.
 This was done via the introduction of six mood categories namely \textit{Chill}, \textit{Focus}, \textit{Melancholy}, \textit{Motivation}, \textit{Party} and \textit{You and Me}.
@@ -269,7 +269,28 @@ The authors tried to predict the user's emotion based on the facial expression d
 Depending on the emotion a suitable \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}} playlist was displayed.
 To prevent users from being unsatisfied with the song they now are listening to, the surface of the application still provided the option for an alternative playlist and therefore implicit also mood selection.
 For evaluation they used \textit{Accuracy}, \textit{Loss}, \textit{F1-score}, \textit{Precision} and \textit{Recall}.
-In comparison to other approaches the focus here was more on the emotion recognition rather than the actual playlist recommendation.\cite{priyanka2023novel}
+In comparison to other approaches the focus here was more on the emotion recognition rather than the actual playlist recommendation.\cite{priyanka2023novel}\\
+Table 1 summarizes various limitations of current approaches in the field of music recommendation. 
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|p{5cm}||p{5cm}|}
+  \hline
+  \multicolumn{2}{|c|}{Limitations}\\
+  \hline
+  Limited data & Approaches such as \cite{niyazov2021content} use only a limited amount of data to train their models. Jannach \textit{et al.} \cite{jannach2020deep} mentioned that sometimes smaller subsets of the data are used due to limited resources.\\
+  \hline
+  Cold-start problem & Some works try to tackle the cold-start problem. It basically means that there is too little data present for accurate predictions.
+  La Gatta \textit{et al.} \cite{la2022music} state, that collaborative filtering methods suffer from this problem. \\
+  \hline
+  Reproducibility & Works such as \cite{cremonesi2021progress} showed that one limitation of current approaches in this field is their reproducibility.\\
+  \hline
+  Unsuitable methodologies & In their work \cite{cremonesi2021progress} Cremonesi \textit{et al.} discussed various methodological issues visible in current approaches. This ranges from unsuitable experiments to a lack of research questions.\\
+  \hline
+  Inference times & There is little information to be found on actual recommendation times. Users should receive fast recommendations.\\
+  \hline
+\end{tabular}
+\caption{Summary of limitations of current approaches for music recommendation}
+\end{table}
 \subsection{User Experience}
 This subsection summarizes a publication evaluating the experience of users when being confronted with corporate recommendation systems as for example the in-house tools from various popular music providers.\\
 \\
@@ -332,12 +353,20 @@ If they found evidence that there is no real progress, they tried to find reason
 but also reviewers and chairs. 
 They suggested to move from a strong reliance on accuracy and well-explored problems to more practice related work. \cite{cremonesi2021progress} \\
 \\
+In their paper Jannach \textit{et al.} tried to find out why deep learning approaches constantly outperfom state-of-the-art baselines
+in new publications but don't win against more traditional solutions in competitions held at conferences. 
+One potential reason is the computational expensiveness of deep learning approaches in combination with large datasets.
+As an alternative to long waiting times people tend to use different approaches or use a smaller subset of the datase which could result in a different performance.
+Datasets used in such competitions tend to have a high data sparsity which could lead to a bad performance of deep learning approaches due to the risk of overfitting. 
+Additionally the presence of a lot of meta data could result in a confused model and deep learning models tend to bypass side information. 
+The authors highlight that researcher should not solely rely on deep learning methods but also consider different approaches such as traditional machine learning, depending on the use case.\cite{jannach2020deep}\\
+\\
 Summarizing we can say that every approach has it's own limitations. However this should not prevent researchers from using proper and reproducable techniques. 
 Many approaches rely on old or not perfectly suitable datasets because 
-it results in huge effort to improve or create new datasets. \\
+it results in huge effort to improve or create new datasets. Others use incomplete methodologies or evaluation practices for various reasons.\\
 \\
 One has to note that this seminar paper only contains publicly available music recommendation systems.
-Outside of the research environment recommender systems are a very competitive field. 
+Outside of the research environment recommender systems is a very competitive field. 
 Large companies such as the music provider service \textit{Spotify}\footnote{\url{https://open.spotify.com/intl-de}}
 have a desperate need of good music recommendation to satisfy their user's needs and to stand out from their competitors. 
 A large share of their employees probably does similar work but 
@@ -366,7 +395,7 @@ Usually a user only sees the recommendation but no additional information. This 
 Other work already highlighted the presence of biasas and unfairness where recommender systems provided different results to users depending on various personality traits et cetera. 
 How do developers ensure that such unfairness does not happen? An example of e-commerce recommendations where one user group gets suggestions of higher priced items than the other again hightlights the problems arising with such biases. 
 \subsubsection{A/B Testing}
-A/B Testing is often used by companies to test their latest changes or developments without completely changing the whole system.
+A/B Testing is often used by companies to test their latest changes or developments without changing the whole system for all users.
 For this kind of test half of the users experience the new version and the rest the old version of the recommendation system.
 This helps companies to on the one hand gain information on user's interaction with and recation concerning the latest changes but also performance information.
 Users don't know that they are currently part of an experiment and obviously did not aggree on any kind of participation. 
@@ -395,8 +424,7 @@ Another recommendation by the author is to not perform A/B Testing as the user i
 Instead it is suggested to first to a supervised lab testing phase or provide a beta version with information about the changes and usage.
 Changes should be rolled out to all users at once. 
 The final important aspect this work highlights is the limited traceability of the effects of the app and the recommendation system on the society.
-For this surveys, traffis analysis and restaurant contact is recommended.  \cite{levina2021towards} 
-
+For this surveys, traffis analysis and restaurant contact is recommended.\cite{levina2021towards} 
 \section{Conclusions}
 Recommender systems in general is a very large and broadly spread research topic with a huge amount of publications.\\
 With recent development in the field of artificial intelligence, especially neural networks, a lot of new approaches and ideas were published.\\
@@ -420,7 +448,6 @@ To answer the hypothesis:
 Unfortunately, \textbf{we are not there yet.} \\
 The field of music recommendation is very broad and a lot of different aspects highlighted in this seminar paper need to be taken into account when aiming for a decent music recommender system.
 But overall most of the recent publications point into the right direction.  
-\newpage
 \begin{thebibliography}{4}
 
 \bibitem{wang2020came} Wang, Dongjing and Zhang, Xin and Yu, Dongjin and Xu, Guandong and Deng, Shuiguang: 
@@ -506,6 +533,9 @@ Flow moods: Recommending music by moods on deezer. In:
 Proceedings of the 16th ACM Conference on Recommender Systems, pp. 
 452--455(2022)
 
+\bibitem{jannach2020deep} Jannach, Dietmar and de Souza P. Moreira, Gabriel and Oldridge, Even:
+Why are deep learning models not consistently winning recommender systems competitions yet? A position paper. In:
+Proceedings of the Recommender Systems Challenge 2020, pp. 44--49 (2020)
 
 %\bibitem{jour} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
 %Subsequences. J. Mol. Biol. 147, 195--197 (1981)
